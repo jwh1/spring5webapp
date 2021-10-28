@@ -21,6 +21,11 @@ public class BootController {
         model.addAttribute("books", bookRepository.findAll());
         return "books/list";
     }
+    @RequestMapping("/book")
+    public String getBook(Model model, Long id){
+        model.addAttribute("book", bookRepository.findById(id).get());
+        return "books/book";
+    }
     @RequestMapping("/authors")
     public String getAuthor(Model model){
         model.addAttribute("authors", authorRepository.findAll());
